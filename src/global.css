@@ -1,0 +1,59 @@
+/** @import must precede all other statements */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme
+   */
+  :root {
+    /* Base neutrals */
+    --background: 0 0% 100%; /* #FFFFFF */
+    --foreground: 0 0% 13%; /* #212121 */
+
+    /* Surfaces */
+    --card: 0 0% 96%; /* #F5F5F5 */
+    --card-foreground: 0 0% 13%; /* #212121 */
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 13%;
+
+    /* Brand greens */
+    --primary: 123 46% 33%; /* #2E7D32 */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 122 39% 49%; /* #4CAF50 */
+    --secondary-foreground: 0 0% 100%;
+
+    /* Support */
+    --muted: 0 0% 96%; /* #F5F5F5 */
+    --muted-foreground: 0 0% 46%; /* #757575 */
+
+    --accent: 122 37% 74%; /* #A5D6A7 */
+    --accent-foreground: 123 46% 33%; /* herbal text on mint */
+
+    --destructive: 9 100% 64%; /* #FF7043 */
+    --destructive-foreground: 0 0% 100%;
+
+    /* Controls */
+    --border: 122 37% 78%; /* soft mint border */
+    --input: 122 37% 78%;
+    --ring: 123 46% 33%; /* focus ring in herbal */
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html, body, #root { height: 100%; }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+  ::selection { background-color: hsl(var(--accent)); color: hsl(var(--primary)); }
+  h1, h2, h3, h4, h5, h6 { color: #8D6E63; }
+}
