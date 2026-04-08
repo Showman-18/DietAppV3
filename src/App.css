@@ -1,67 +1,65 @@
-/* Center everything */
+/* Page base */
 body {
   margin: 0;
   background: #f4f4f4;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Center main container */
+/* Main wrapper */
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
-/* The grid */
+/* Responsive Connect-4 grid */
 .grid {
   display: grid;
-  grid-template-columns: repeat(7, 70px);
-  grid-template-rows: repeat(6, 70px);
-  gap: 5px;
-  background-color: #005bbb; /* Board blue */
-  padding: 10px;
+
+  /* Auto responsive sizing  
+     min: 40px, preferred: 10vw, max: 80px */
+  grid-template-columns: repeat(7, clamp(40px, 10vw, 80px));
+  grid-template-rows: repeat(6, clamp(40px, 10vw, 80px));
+
+  gap: clamp(4px, 1vw, 8px);
+  background-color: #005bbb;
+  padding: clamp(8px, 1vw, 12px);
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+
+  /* Prevent too-wide overflow on small phones */
+  max-width: 100vw;
 }
 
 /* Each square */
 .gridBox {
-  width: 70px;
-  height: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
-/* Circle pieces */
+/* Pieces inside each square */
 .boxCircle {
-  width: 60px;
-  height: 60px;
+  width: 80%;
+  height: 80%;
   background-color: white;
   border-radius: 50%;
   transition: background-color 0.2s ease, transform 0.1s ease;
   box-shadow: inset 0 0 8px rgba(0,0,0,0.3);
 }
 
-/* Hover column highlight */
+/* Hover column effect */
 .gridBox:hover .boxCircle {
-  transform: scale(1.07);
+  transform: scale(1.1);
   box-shadow: inset 0 0 12px rgba(0,0,0,0.5);
-}
-
-/* Red & yellow tokens */
-.red {
-  background-color: red !important;
-}
-
-.yellow {
-  background-color: yellow !important;
 }
 
 /* Buttons */
 button {
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: clamp(14px, 2vw, 18px);
   cursor: pointer;
   border: none;
   border-radius: 6px;
